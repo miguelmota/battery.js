@@ -1,0 +1,21 @@
+{
+  "name": "battery",
+  "main": "battery.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/miguelmota/battery",
+  "authors": [
+    "Miguel Mota <miguelmota2@gmail.com>"
+  ],
+  "description": "Battery Status API wrapper",
+  "keywords": [
+    "battery"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "MIT"
+}

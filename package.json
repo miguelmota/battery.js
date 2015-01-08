@@ -1,0 +1,28 @@
+{
+  "name": "battery",
+  "version": "0.0.1",
+  "description": "Battery Status API wrapper",
+  "main": "battery.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miguelmota/battery"
+  },
+  "keywords": [
+    "battery"
+  ],
+  "author": "Miguel Mota <hello@miguelmota.com> (http://www.miguelmota.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miguelmota/battery/issues"
+  },
+  "homepage": "https://github.com/miguelmota/battery",
+  "dependencies": {
+    "tape": "^3.0.3"
+  }
+}
