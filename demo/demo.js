@@ -75,7 +75,7 @@ function toHMS(durationInSeconds) {
 }
 
 function setText(el, t) {
-  if(document.all){
+  if (document.all) {
     el.innerText = t;
   } else{
     el.textContent = t;
