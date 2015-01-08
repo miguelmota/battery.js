@@ -64,16 +64,16 @@
         this.trigger('ready', this);
         this._battery.addEventListener('chargingchange', function() {
           this.trigger('chargingChange', this.isCharging());
-        });
+        }.bind(this));
         this._battery.addEventListener('chargingtimechange', function() {
           this.trigger('chargingTimeChange', this.getChargingTime());
-        });
+        }.bind(this));
         this._battery.addEventListener('dischargingtimechange', function() {
           this.trigger('dischargingTimeChange', this.getDischargingTime());
-        });
+        }.bind(this));
         this._battery.addEventListener('levelchange', function() {
           this.trigger('levelChange', this.getLevel());
-        });
+        }.bind(this));
       }.bind(this), function(error) {
         this.trigger('error', error);
       }.bind(this));
