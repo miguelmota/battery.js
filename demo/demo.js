@@ -38,19 +38,19 @@ battery.on('error', function(error) {
 });
 
 function updateCharging(isCharging) {
-  el.charging.innerText = isCharging;
+  setText(el.charging, isCharging);
 }
 
 function updateChargingTime(chargingTime) {
-  el.chargingTime.innerText = chargingTime + toHMS(chargingTime);
+  setText(el.chargingTime, chargingTime + toHMS(chargingTime));
 }
 
 function updateDischargingTime(dischargingTime) {
-  el.dischargingTime.innerText = dischargingTime + toHMS(dischargingTime);
+  setText(el.dischargingTime, dischargingTime + toHMS(dischargingTime));
 }
 
 function updateLevel(level) {
-  el.level.innerText = level + toPercent(level);
+  setText(el.level, level + toPercent(level));
   var statusClass = 'ok';
   if (level < 0.2) {
     statusClass = 'warning';
@@ -72,4 +72,12 @@ function toHMS(durationInSeconds) {
   var seconds = durationInSeconds % 60;
   var minutes = Math.floor((durationInSeconds - hours * 3600 - seconds) / 60);
   return ' (' + hours + 'h:' + minutes + 'm:' + seconds + 's)';
+}
+
+function setText(el, t) {
+  if(document.all){
+    el.innerText = t;
+  } else{
+    el.textContent = t;
+  }
 }

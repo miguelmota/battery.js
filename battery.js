@@ -55,29 +55,35 @@
     observable(this);
 
     if (typeof navigator.getBattery !== 'function') {
-      setTimeout(function() {
-        this.trigger('error', new Error('getBattery API not supported.'));
-      }.bind(this),0);
-    } else {
-      navigator.getBattery().then(function(batteryManager) {
-        this._battery = batteryManager;
-        this.trigger('ready', this);
-        this._battery.addEventListener('chargingchange', function() {
-          this.trigger('chargingChange', this.isCharging());
-        }.bind(this));
-        this._battery.addEventListener('chargingtimechange', function() {
-          this.trigger('chargingTimeChange', this.getChargingTime());
-        }.bind(this));
-        this._battery.addEventListener('dischargingtimechange', function() {
-          this.trigger('dischargingTimeChange', this.getDischargingTime());
-        }.bind(this));
-        this._battery.addEventListener('levelchange', function() {
-          this.trigger('levelChange', this.getLevel());
-        }.bind(this));
-      }.bind(this), function(error) {
-        this.trigger('error', error);
-      }.bind(this));
+      navigator.getBattery = function () {
+        return new Promise(function (resolve, reject) {
+          if (navigator.battery) {
+            resolve(navigator.battery);
+          } else {
+            reject(new Error('Battery Status API not implemented.'));
+          }
+        });
+      };
     }
+
+    navigator.getBattery().then(function(batteryManager) {
+      this._battery = batteryManager;
+      this.trigger('ready', this);
+      this._battery.addEventListener('chargingchange', function() {
+        this.trigger('chargingChange', this.isCharging());
+      }.bind(this));
+      this._battery.addEventListener('chargingtimechange', function() {
+        this.trigger('chargingTimeChange', this.getChargingTime());
+      }.bind(this));
+      this._battery.addEventListener('dischargingtimechange', function() {
+        this.trigger('dischargingTimeChange', this.getDischargingTime());
+      }.bind(this));
+      this._battery.addEventListener('levelchange', function() {
+        this.trigger('levelChange', this.getLevel());
+      }.bind(this));
+    }.bind(this), function(error) {
+      this.trigger('error', error);
+    }.bind(this));
   }
 
 
