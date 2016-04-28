@@ -42,10 +42,6 @@ h1 {
   text-align: left;
 }
 
-#battery-container {
-  margin: 20px auto 40px auto;
-}
-
 #battery {
   position: relative;
   display: inline-block;
