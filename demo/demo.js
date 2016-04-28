@@ -58,7 +58,7 @@ function updateLevel(level) {
   if (level < 0.1) {
     statusClass = 'critical';
   }
-  el.batteryBar.style.width = battery.getPercentage() + '%';
+  document.getElementById('batteryBar').setAttribute('width', battery.getPercentage() + "%");
   el.batteryBar.setAttribute('class', statusClass);
 }
 
