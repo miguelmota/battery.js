@@ -4,7 +4,6 @@
     chargingTime: document.getElementById('chargingTime'),
     dischargingTime: document.getElementById('dischargingTime'),
     level: document.getElementById('level'),
-    battery: document.getElementById('battery'),
     batteryBar: document.getElementById('battery-bar')
   };
 
