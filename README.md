@@ -4,7 +4,7 @@
 
 # Demo
 
-[http://battery.moogs.io](http://battery.moogs.io)
+[https://lab.miguelmota.com/battery](https://lab.miguelmota.com/battery)
 
 # Install
 
